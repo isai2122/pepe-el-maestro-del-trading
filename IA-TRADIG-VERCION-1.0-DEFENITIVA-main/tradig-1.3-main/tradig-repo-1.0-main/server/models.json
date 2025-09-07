@@ -1,0 +1,43 @@
+{
+  "models": [
+    {
+      "id": "model-btcusdt-1",
+      "pair": "BTCUSDT",
+      "version": "1.0.0",
+      "createdAt": "2025-08-23T00:00:00Z",
+      "updatedAt": "2025-08-23T00:00:00Z",
+      "weights": {
+        "sma_fast": 0.25,
+        "sma_slow": 0.25,
+        "rsi": 0.15,
+        "macd": 0.15,
+        "bollinger": 0.1,
+        "volume": 0.1
+      },
+      "predictions": [],
+      "learningHistory": [],
+      "errors": [],
+      "stats": {
+        "totalPredictions": 0,
+        "correctPredictions": 0,
+        "accuracy": 0,
+        "confidenceCurrent": 0.5,
+        "confidenceAvg": 0
+      },
+      "hyperparams": {
+        "learningRate": 0.02
+      }
+    }
+  ],
+  "simulations": [],
+  "pending": null,
+  "config": {
+    "simulationIntervalSec": 300,
+    "analysisIntervalSec": 30,
+    "maxModelsStored": 10
+  },
+  "meta": {
+    "lastSave": "2025-08-23T00:00:00Z",
+    "formatVersion": 1
+  }
+}

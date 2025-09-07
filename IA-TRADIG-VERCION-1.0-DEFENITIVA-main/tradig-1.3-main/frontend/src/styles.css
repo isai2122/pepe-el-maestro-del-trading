@@ -1,0 +1,81 @@
+:root{--bg:#0b1220;--card:#0f1724;--muted:#94a3b8;--accent:#10b981;--accent2:#06b6d4;--glass:rgba(255,255,255,0.03)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:linear-gradient(180deg,#020617 0%, #071230 100%);color:#e6eef8}
+.container{max-width:1100px;margin:20px auto;padding:18px}
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);padding:14px;border-radius:10px;overflow:visible}
+.header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.h-title{display:flex;align-items:center;gap:10px}
+.h-title h1{margin:0;font-size:20px}
+.top-controls{display:flex;gap:8px;align-items:center}
+
+/* Buttons: futuristic, subtle gradient, shadow, smooth transition */
+.controls {
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+  color: #e6eef8;
+  cursor:pointer;
+  transition: transform 160ms cubic-bezier(.2,.9,.2,1), box-shadow 160ms, background 200ms;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.6), inset 0 -1px 0 rgba(255,255,255,0.02);
+  font-weight: 600;
+  font-size: 13px;
+}
+.controls:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(2,6,23,0.75); }
+.controls:active { transform: translateY(-1px); }
+
+.controls[disabled] { opacity: 0.6; cursor: not-allowed; transform:none; box-shadow:none; }
+
+/* active tab style: bright accent border + readable text */
+.controls.active {
+  background: linear-gradient(180deg, rgba(6,182,212,0.10), rgba(16,185,129,0.03));
+  border: 1px solid rgba(6,182,212,0.45);
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(6,182,212,0.06);
+}
+
+/* layout */
+.layout{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.chart-wrap{height:520px}
+.section-title{font-size:13px;color:var(--muted);margin-bottom:8px}
+.pred-box{padding:10px;background:rgba(255,255,255,0.02);border-radius:8px}
+.small{font-size:13px;color:var(--muted)}
+.table{width:100%;border-collapse:collapse}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px;border-bottom:1px dashed rgba(255,255,255,0.02)}
+.green{color:#10b981}
+.red{color:#fb7185}
+
+/* capsule */
+.sims-capsule {
+  background: rgba(7,18,48,0.45);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  overflow: visible; /* outer wrapper should not scroll */
+}
+
+/* THE SINGLE scrollable element inside the capsule */
+.sims-scroll {
+  padding: 12px;
+  max-height: 360px;
+  overflow-y: auto;
+  transition: max-height 260ms ease;
+}
+
+/* custom scrollbar for the capsule (WebKit + Firefox) */
+.sims-scroll::-webkit-scrollbar { width: 14px; }
+.sims-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-radius: 12px; margin: 6px 0; }
+.sims-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(6,182,212,0.9), rgba(16,185,129,0.95));
+  border-radius: 12px;
+  border: 3px solid rgba(255,255,255,0.02);
+}
+
+/* firefox */
+.sims-scroll { scrollbar-width: thin; scrollbar-color: rgba(6,182,212,0.9) rgba(255,255,255,0.02); }
+
+/* small responsive tweak */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .chart-wrap { height: 420px; }
+  .sims-scroll { max-height: 280px; }
+}

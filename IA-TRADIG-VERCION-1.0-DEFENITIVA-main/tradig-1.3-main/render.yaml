@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: tradingai-pro
+    env: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MONGO_URL
+        value: mongodb://localhost:27017
+      - key: DB_NAME  
+        value: tradingai_prod
+      - key: CORS_ORIGINS
+        value: "*"

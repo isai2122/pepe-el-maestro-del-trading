@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: tradig-realtime
+    env: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MONGO_URL
+        value: mongodb://localhost:27017
+      - key: REACT_APP_BACKEND_URL
+        fromService:
+          type: web
+          name: tradig-realtime
+          property: host
+    healthCheckPath: /api/health

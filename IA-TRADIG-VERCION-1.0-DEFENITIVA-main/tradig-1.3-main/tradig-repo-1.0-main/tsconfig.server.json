@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "lib": ["ES2020", "DOM"],
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "isolatedModules": false,
+    "useDefineForClassFields": true,
+    "rootDir": "server",
+    "outDir": "dist/server",
+    "noEmitOnError": true
+  },
+  "include": ["server/**/*"],
+  "exclude": ["node_modules", "dist", "client", "build"]
+}

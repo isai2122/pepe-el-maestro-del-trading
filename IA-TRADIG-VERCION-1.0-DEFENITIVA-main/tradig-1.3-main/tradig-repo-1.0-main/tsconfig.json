@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    /* === Compatibilidad moderna con Node === */
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    /* === Librerías disponibles === */
+    "lib": ["ES2020", "DOM"],
+
+    /* === JSX (solo si usas React/TSX en el server) === */
+    "jsx": "react-jsx",
+
+    /* === Módulos y JSON === */
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+
+    /* === Permitir JS junto con TS === */
+    "allowJs": true,
+    "checkJs": false,
+
+    /* === Validaciones rápidas === */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* === Estrictitud (puedes activar más tarde) === */
+    "strict": false,
+    "isolatedModules": true,
+
+    /* === Configuración de clases === */
+    "useDefineForClassFields": true,
+
+    /* === Entrada y salida === */
+    "rootDir": "server",
+    "outDir": "dist/server"
+  },
+
+  "include": [
+    "server/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "client",        // <-- excluimos frontend porque se compila con Vite/Next
+    "build"          // <-- carpeta típica de frontend
+  ]
+}

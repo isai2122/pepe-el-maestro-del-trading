@@ -1,0 +1,90 @@
+[1mdiff --git a/server/backtest.ts b/server/backtest.ts[m
+[1mindex 0a7a61e..66f9234 100644[m
+[1m--- a/server/backtest.ts[m
+[1m+++ b/server/backtest.ts[m
+[36m@@ -1,8 +1,8 @@[m
+ // server/backtest.ts[m
+[31m-import { sma, rsi, macd, bollinger, toCloses } from './indicators';[m
+[31m-import type { Model } from './train';[m
+[31m-import type { BacktestResult } from './train';[m
+[31m-import type { Candle } from './types';[m
+[32m+[m[32mimport { sma, rsi, macd, bollinger, toCloses } from './indicators.js';[m
+[32m+[m[32mimport type { Model } from './train.js';[m
+[32m+[m[32mimport type { BacktestResult } from './train.js';[m
+[32m+[m[32mimport type { Candle } from './types.js';[m
+ [m
+ [m
+ export function runBacktest(model: Model, candles: Candle[]): BacktestResult {[m
+[1mdiff --git a/server/index.ts b/server/index.ts[m
+[1mindex e5b45a9..3a6af14 100644[m
+[1m--- a/server/index.ts[m
+[1m+++ b/server/index.ts[m
+[36m@@ -6,12 +6,12 @@[m [mimport fs from 'fs';[m
+ import path from 'path';[m
+ import { promisify } from 'util';[m
+ [m
+[31m-import { loadState as loadStateFromFile } from './state';[m
+[31m-import { predict } from './model';[m
+[31m-import { runBacktest } from './backtest';[m
+[31m-import { trainGrid } from './train';[m
+[31m-import { log } from './utils/logger';[m
+[31m-import type { Candle, Simulation, ServerState, Trend, NewsItem, Model as CoreModel } from './types';[m
+[32m+[m[32mimport { loadState as loadStateFromFile } from './state.js';[m
+[32m+[m[32mimport { predict } from './model.js';[m
+[32m+[m[32mimport { runBacktest } from './backtest.js';[m
+[32m+[m[32mimport { trainGrid } from './train.js';[m
+[32m+[m[32mimport { log } from './utils/logger.js';[m
+[32m+[m[32mimport type { Candle, Simulation, ServerState, Trend, NewsItem, Model as CoreModel } from './types.js';[m
+ [m
+ // node-fetch v2 (dependency en package.json). Usamos require para compatibilidad con ts-node settings.[m
+ const fetch: any = require('node-fetch');[m
+[1mdiff --git a/server/model.ts b/server/model.ts[m
+[1mindex bbc119e..7a33612 100644[m
+[1m--- a/server/model.ts[m
+[1m+++ b/server/model.ts[m
+[36m@@ -1,6 +1,6 @@[m
+ // server/model.ts[m
+[31m-import type { ServerState, NewsItem as NewsItemType } from './types';[m
+[31m-import { loadState, saveState } from './state';[m
+[32m+[m[32mimport type { ServerState, NewsItem as NewsItemType } from './types.js';[m
+[32m+[m[32mimport { loadState, saveState } from './state.js';[m
+ [m
+ [m
+ export interface Signal {[m
+[1mdiff --git a/server/news.ts b/server/news.ts[m
+[1mindex 746c9eb..48451e3 100644[m
+[1m--- a/server/news.ts[m
+[1m+++ b/server/news.ts[m
+[36m@@ -1,7 +1,7 @@[m
+ import fs from 'fs';[m
+ import path from 'path';[m
+[31m-import { loadState, saveState } from './state';[m
+[31m-import type { ServerState } from './types';[m
+[32m+[m[32mimport { loadState, saveState } from './state.js';[m
+[32m+[m[32mimport type { ServerState } from './types.js';[m
+ [m
+ [m
+ const DATA_DIR = path.join(__dirname, "data");[m
+[1mdiff --git a/server/state.ts b/server/state.ts[m
+[1mindex 13cb8f0..ee3067a 100644[m
+[1m--- a/server/state.ts[m
+[1m+++ b/server/state.ts[m
+[36m@@ -1,7 +1,7 @@[m
+ // server/state.ts[m
+ import fs from 'fs';[m
+ import path from 'path';[m
+[31m-import type { ServerState } from './types';[m
+[32m+[m[32mimport type { ServerState } from './types.js';[m
+ [m
+ [m
+ const DATA_DIR = path.join(__dirname, 'data');[m
+[1mdiff --git a/server/train.ts b/server/train.ts[m
+[1mindex fcf193c..3048385 100644[m
+[1m--- a/server/train.ts[m
+[1m+++ b/server/train.ts[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-import { runBacktest } from './backtest';[m
+[32m+[m[32mimport { runBacktest } from './backtest.js';[m
+ [m
+ export interface Model {[m
+   wSma: number;[m

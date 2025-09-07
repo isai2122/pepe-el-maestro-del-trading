@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: tradingai-pro
+    env: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    region: oregon
+    buildCommand: ""
+    startCommand: ""
+    envVars:
+      - key: MONGO_URL
+        # MongoDB Atlas connection string - replace with your actual connection
+        value: mongodb+srv://username:password@cluster.mongodb.net/tradingai?retryWrites=true&w=majority
+      - key: DB_NAME  
+        value: tradingai
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: PORT
+        value: "8001"
+      - key: NODE_ENV
+        value: production
+      - key: PYTHONPATH
+        value: /app
