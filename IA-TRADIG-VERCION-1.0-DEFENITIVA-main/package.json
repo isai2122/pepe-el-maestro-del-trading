@@ -1,4 +1,12 @@
 {
+  "name": "ia-tradig",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cd frontend && yarn start",
+    "dev": "cd frontend && yarn start",
+    "build": "cd frontend && yarn build"
+  },
   "dependencies": {
     "lightweight-charts": "^5.0.8"
   }
