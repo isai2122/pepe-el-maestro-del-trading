@@ -3,7 +3,8 @@ FROM node:18-alpine AS frontend-build
 
 # Instalar dependencias del frontend
 WORKDIR /app/frontend
-COPY IA-TRADIG-VERCION-1.0-DEFENITIVA-main/frontend/package.json frontend/yarn.lock ./
+COPY IA-TRADIG-VERCION-1.0-DEFENITIVA-main/frontend/package.json \
+     IA-TRADIG-VERCION-1.0-DEFENITIVA-main/frontend/yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 # Copiar código del frontend y construir
